@@ -101,6 +101,8 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     .cookie("token", "", {
       expires: new Date(Date.now()),
       httpOnly: true,
+      secure: true,
+      sameSite: "None",
     })
     .json({
       success: true,
@@ -160,6 +162,8 @@ export const updateProfile = catchAsyncErrors(async (req, res, next) => {
     new: true,
     runValidators: true,
     useFindAndModify: false,
+    secure: true,
+    sameSite: "None",
   });
   res.status(200).json({
     success: true,
