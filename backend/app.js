@@ -15,10 +15,11 @@ const app = express();
 config({ path: "./config/config.env" });
 
 app.use(cors({
-        origin: "https://work-wave1.vercel.app/"
-    }
-))
-app.options('*', cors())
+    origin: "https://work-wave1.vercel.app",
+    credentials: true
+}));
+
+app.options('*', cors());
 
 app.use(cookieParser());
 app.use(express.json());
